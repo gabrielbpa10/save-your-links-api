@@ -4,10 +4,11 @@ import com.save.link.api.dto.form.UserForm;
 import com.save.link.api.model.entity.User;
 import com.save.link.api.model.repository.UserRepository;
 import com.save.link.api.util.exception.BusinessException;
-import com.save.link.api.util.response.UtilResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -21,7 +22,11 @@ public class UserService {
         try {
             userRepository.save(user);
         } catch (DataIntegrityViolationException exception) {
-            throw new BusinessException("Já existe esse usuário já cadastrado.");
+            throw new BusinessException("Já existe este usuário já cadastrado.");
         }
+    }
+
+    public Optional<User> getUserByEmail(String email) {
+        return this.userRepository.findByEmail(email);
     }
 }

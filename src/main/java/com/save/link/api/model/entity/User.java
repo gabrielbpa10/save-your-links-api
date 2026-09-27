@@ -2,6 +2,9 @@ package com.save.link.api.model.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "tb_user", schema = "svl")
 public class User {
@@ -20,11 +23,20 @@ public class User {
     @Column(name = "ds_email")
     private String email;
 
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Link> links = new ArrayList<>();
+
     public User(String name, String lastName, String email) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
     }
+
+    protected User() {}
 
     public Long getId() {
         return id;
@@ -56,5 +68,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Link> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Link> links) {
+        this.links = links;
     }
 }
