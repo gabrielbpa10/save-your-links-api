@@ -48,4 +48,14 @@ public class LinkService {
                 ))
                 .toList();
     }
+
+    public void deleteLink(Long idLink) {
+        this.linkRepository.findById(idLink)
+                .ifPresentOrElse(
+                        this.linkRepository::delete,
+                        () -> {
+                            throw new BusinessException("Link não encontrado.");
+                        }
+                );
+    }
 }

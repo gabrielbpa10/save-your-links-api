@@ -18,11 +18,17 @@ public class LinkController {
     @PostMapping
     public ResponseEntity<CustomResponse> saveNewProduct(@Valid @RequestBody LinkForm linkForm) {
         linkService.save(linkForm);
-        return ResponseEntity.ok(new CustomResponse(null, 201, "Link salvo com sucesso!"));
+        return ResponseEntity.ok(new CustomResponse(null, 201, "Link salvo com sucesso."));
     }
 
     @GetMapping("/find-by-url/{filter}")
     public ResponseEntity<CustomResponse> findByURL(@PathVariable String filter) {
         return ResponseEntity.ok(new CustomResponse(this.linkService.findByURL(filter), 200, ""));
+    }
+
+    @DeleteMapping("/delete-link/{idLink}")
+    public ResponseEntity<CustomResponse> deleteLink(@PathVariable Long idLink) {
+        this.linkService.deleteLink(idLink);
+        return ResponseEntity.ok(new CustomResponse(null, 200, "Link deletado com sucesso."));
     }
 }
