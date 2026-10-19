@@ -1,6 +1,6 @@
 package com.save.link.api.service;
 
-import com.save.link.api.dto.form.UserForm;
+import com.save.link.api.model.dto.form.UserForm;
 import com.save.link.api.model.entity.User;
 import com.save.link.api.model.repository.UserRepository;
 import com.save.link.api.util.exception.BusinessException;

@@ -1,4 +1,4 @@
-package com.save.link.api.dto.form;
+package com.save.link.api.model.dto.form;
 
 public class LinkForm {
     public String descTitle;

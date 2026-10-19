@@ -1,4 +1,4 @@
-package com.save.link.api.dto;
+package com.save.link.api.model.dto;
 
 import java.time.LocalDateTime;
 

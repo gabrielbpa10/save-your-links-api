@@ -1,6 +1,6 @@
 package com.save.link.api.config.handler;
 
-import com.save.link.api.dto.ApiErrorDTO;
+import com.save.link.api.model.dto.ApiErrorDTO;
 import com.save.link.api.util.exception.BusinessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

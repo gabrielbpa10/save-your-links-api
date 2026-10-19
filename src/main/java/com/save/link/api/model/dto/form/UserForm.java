@@ -1,4 +1,4 @@
-package com.save.link.api.dto.form;
+package com.save.link.api.model.dto.form;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

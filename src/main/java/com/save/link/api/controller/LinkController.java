@@ -1,6 +1,6 @@
 package com.save.link.api.controller;
 
-import com.save.link.api.dto.form.LinkForm;
+import com.save.link.api.model.dto.form.LinkForm;
 import com.save.link.api.service.LinkService;
 import com.save.link.api.util.response.CustomResponse;
 import jakarta.validation.Valid;
