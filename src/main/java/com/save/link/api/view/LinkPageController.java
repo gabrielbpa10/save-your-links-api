@@ -11,13 +11,13 @@ public class LinkPageController {
 
     @GetMapping("/meus-links")
     public String listar(Model model) {
-        model.addAttribute("titulo", "Meus Links");
+        model.addAttribute("titulo", "Save Your Links");
 
-        model.addAttribute("links", List.of(
-                "https://spring.io",
-                "https://www.thymeleaf.org"
-        ));
+//        model.addAttribute("links", List.of(
+//                "https://spring.io",
+//                "https://www.thymeleaf.org"
+//        ));
 
-        return "links/lista";
+        return "links/buscador";
     }
 }
