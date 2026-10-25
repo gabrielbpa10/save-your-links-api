@@ -27,6 +27,11 @@ public class LinkPageController {
                 pesquisa.isBlank() ? List.of() : linkService.findByURL(pesquisa)
                 );
 
-        return "links/buscador";
+        return "pages/links/buscador";
+    }
+
+    @GetMapping("/links/cadastrar")
+    public String cadastrarNovoLink() {
+        return "pages/links/cadastro-link";
     }
 }

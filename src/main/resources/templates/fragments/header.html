@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
 <body>
 <header th:fragment="header">
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="light">
@@ -17,11 +20,14 @@
           </li>
         </ul>
         <div class="navbar-actions">
-          <button class="btn btn-outline-success btn-outline-custom" type="button">
+          <button class="btn btn-outline-success btn-outline-custom"
+                  id="button-cadastro-link"
+                  th:data-url="@{/links/cadastrar}"
+                  type="button">
             <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false">
               <path d="M8 3v10M3 8h10"/>
             </svg>
-            Cadastro link
+            Cadastrar link
           </button>
           <div class="dropdown">
             <button class="user-avatar" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Abrir menu do usuário">
@@ -40,6 +46,7 @@
       </div>
     </div>
   </nav>
+  <script th:src="@{/js/header.js}" defer></script>
 </header>
 </body>
 </html>
