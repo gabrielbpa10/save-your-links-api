@@ -1,22 +1,31 @@
 package com.save.link.api.view;
 
+import com.save.link.api.service.LinkService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Controller
 public class LinkPageController {
 
-    @GetMapping("/meus-links")
-    public String listar(Model model) {
-        model.addAttribute("titulo", "Save Your Links");
+    private final LinkService linkService;
 
-//        model.addAttribute("links", List.of(
-//                "https://spring.io",
-//                "https://www.thymeleaf.org"
-//        ));
+    public LinkPageController(LinkService linkService) {
+        this.linkService = linkService;
+    }
+
+    @GetMapping("/meus-links")
+    public String listar(
+            @RequestParam(defaultValue = "") String pesquisa,
+            Model model) {
+        model.addAttribute("titulo", "Save Your Links");
+        model.addAttribute("pesquisa", pesquisa);
+        model.addAttribute("links",
+                pesquisa.isBlank() ? List.of() : linkService.findByURL(pesquisa)
+                );
 
         return "links/buscador";
     }

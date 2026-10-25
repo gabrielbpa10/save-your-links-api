@@ -42,6 +42,7 @@ public class LinkService {
                 .orElseGet(Collections::emptyList)
                 .stream()
                 .map(link -> new LinkDTO(
+                        link.getId(),
                         link.getDescURL(),
                         link.getDescTitle()
                 ))

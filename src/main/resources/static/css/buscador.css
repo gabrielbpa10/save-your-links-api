@@ -13,64 +13,29 @@ main {
     border-radius: 12px;
 }
 
-li {
-    margin-bottom: 12px;
-}
 
-.navbar {
-    background-color: #F6F7F9;
+.campo-pesquisa {
     position: relative;
-    z-index: 10;
-    box-shadow: 0 3px 8px rgba(80, 80, 80, 0.18);
 }
 
-.navbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.user-avatar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    border: 1px solid #d1d5db;
-    border-radius: 50%;
-    background-color: #e5e7eb;
+.icone-pesquisa {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
     color: #6b7280;
-    cursor: pointer;
+    pointer-events: none;
 }
 
-.user-avatar:hover,
-.user-avatar[aria-expanded="true"] {
-    background-color: #d1d5db;
+.campo-pesquisa input {
+    padding-left: 42px;
+    padding-right: 116px;
+    min-height: 48px;
 }
 
-.user-avatar:focus-visible {
-    outline: 2px solid #2A8EFF;
-    outline-offset: 3px;
-}
-
-.btn-outline-custom {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.button-icon {
-    flex-shrink: 0;
-    color: #fff;
-}
-
-.btn.btn-outline-success,
-.btn.btn-outline-success:hover,
-.btn.btn-outline-success:focus,
-.btn.btn-outline-success:active,
-.btn.btn-outline-success:disabled {
-    color: #fff;
-    background-color: #2A8EFF;
-    border-color: #2A8EFF;
+.botao-pesquisa {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
 }

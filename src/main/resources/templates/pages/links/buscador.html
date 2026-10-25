@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${titulo}"></title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/buscador.css}">
+</head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+<main>
+    <form th:action="@{/meus-links}" method="get">
+        <div class="mb-3 campo-pesquisa">
+            <svg class="icone-pesquisa" xmlns="http://www.w3.org/2000/svg"
+                 width="20" height="20" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="m16 16 4 4"></path>
+            </svg>
+
+            <input type="search"
+                   class="form-control"
+                   id="pesquisa"
+                   name="pesquisa"
+                   th:value="${pesquisa}"
+                   aria-label="Pesquisar links"
+                   placeholder="Pesquise por título, URL ou descrição...">
+            <button type="submit" class="btn btn-primary botao-pesquisa">
+                Pesquisar
+            </button>
+        </div>
+    </form>
+
+    <div class="d-flex flex-column gap-3">
+        <div class="card w-100" th:each="link : ${links}">
+            <div class="card-body">
+                <div class="row">
+                    <h5 class="card-title col-8" th:text="${link.descTitle}">
+                        Título do link
+                    </h5>
+                    <div class="trash-link col-4">
+                        <button type="button" class="btn btn-outline-danger"
+                                aria-label="Excluir link" th:data-link-id="${link.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                 aria-hidden="true">
+                                <path d="M3 6h18M9 6V4h6v2M5 6l1 14h12l1-14M10 10v6M14 10v6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <a class="card-link"
+                   th:href="${link.descUrl}"
+                   th:text="${link.descUrl}"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    URL do link
+                </a>
+            </div>
+        </div>
+        <p th:if="${#lists.isEmpty(links)}">
+            Nenhum resultado encontrado.
+        </p>
+    </div>
+</main>
+    <div class="modal fade" id="modal-excluir-link" tabindex="-1"
+         aria-labelledby="titulo-excluir-link" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titulo-excluir-link">Excluir link</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    Deseja excluir o link selecionado?
+                    <input type="hidden" id="id-link-excluir">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/buscador-links.js}"></script>
+</body>
+</html>
