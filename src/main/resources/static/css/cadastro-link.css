@@ -1,0 +1,17 @@
+.cancelar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6c757d;
+    transition: background-color 0.2s ease;
+}
+
+.cancelar-link:hover,
+.cancelar-link:focus-visible {
+    color: #495057;
+    background-color: #e9ecef;
+}
+
+label {
+    font-weight: 600;
+}

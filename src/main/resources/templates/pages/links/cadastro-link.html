@@ -12,6 +12,43 @@
 </head>
 <body>
     <header th:replace="~{fragments/header :: header}"></header>
+    <main>
+        <h4 class="text-primary">Cadastrar Novo Link</h4>
+        <p class="text-secondary">Preencha o título e a URL para cadastrar um novo link.</p>
+        <form th:action="@{/links/cadastrar}" method="post">
+            <div class="mb-3">
+                <label>Título do link</label>
+                <input type="text"
+                       class="form-control"
+                       id="titulo"
+                       name="titulo"
+                       aria-label="Nome do título"
+                       placeholder="Escreva um título...">
+            </div>
+            <div class="mt-2">
+                <label>Link</label>
+                <input type="text"
+                       class="form-control"
+                       id="url-link"
+                       name="url-lin"
+                       aria-label="URL link"
+                       placeholder="Informe a URL aqui...">
+            </div>
+            <div class="row mt-2">
+                <div class="col-6">
+                    <a class="btn cancelar-link" th:href="@{/meus-links}">
+                        <span aria-hidden="true">&larr;</span>
+                        Cancelar
+                    </a>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">
+                        Cadastrar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </main>
 </body>
     <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </html>
