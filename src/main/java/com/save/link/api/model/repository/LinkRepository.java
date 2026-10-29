@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface LinkRepository extends JpaRepository<Link, Long> {
 
     Optional<List<Link>> findByDescURLContaining(String filter);
+
+    boolean existsByDescURL(String descURL);
 }

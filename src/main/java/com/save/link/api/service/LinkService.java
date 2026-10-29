@@ -26,10 +26,18 @@ public class LinkService {
     private UserService userService;
 
     public void save(LinkForm linkForm) {
+        String url = linkForm.descURL.strip();
+
+        if (linkRepository.existsByDescURL(url)) {
+            throw new BusinessException(
+                    "Não é possível salvar, pois este link já está cadastrado."
+            );
+        }
+
         try {
             Optional<User> userOptional = this.userService.getUserByEmail(linkForm.emailUser);
             User user = userOptional.orElse(null);
-            Link link = new Link(user, linkForm.descTitle, linkForm.descURL);
+            Link link = new Link(user, linkForm.descTitle, url);
             this.linkRepository.save(link);
         }  catch (Exception exception) {
             log.info("Erro em salvar um link: " + exception.getMessage());

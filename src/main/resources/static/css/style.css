@@ -12,3 +12,22 @@ main {
     background: white;
     border-radius: 12px;
 }
+
+.toast {
+    position: fixed;
+    right: 0;
+    bottom: 1rem;
+    z-index: 1090;
+    margin-right: 1rem;
+    background-color: #61e961;
+}
+
+.toast-body {
+    font-weight: 600;
+    color: white;
+    display: block;
+}
+
+.toast-erro {
+    background-color: #ea2b2b;
+}
