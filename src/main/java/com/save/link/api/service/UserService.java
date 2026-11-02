@@ -22,7 +22,7 @@ public class UserService {
         try {
             userRepository.save(user);
         } catch (DataIntegrityViolationException exception) {
-            throw new BusinessException("Já existe este usuário já cadastrado.");
+            throw new BusinessException("Não foi possível cadastrar uma nova conta, pois já existe conta de e-mail cadastrado.");
         }
     }
 

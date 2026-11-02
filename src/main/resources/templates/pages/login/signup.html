@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/signup.css}">
+
+    <title th:text="${titulo ?: 'Cadastro | Save Your Links'}">
+        Cadastro | Save Your Links
+    </title>
+</head>
+<body class="login-page">
+
+<main class="login-container">
+    <header class="login-header">
+        <img
+                class="login-logo"
+                th:src="@{/images/save-your-links-logo.png}"
+                alt="Save Your Links"
+        >
+    </header>
+
+    <section class="login-card" aria-labelledby="signup-title">
+        <h1 id="signup-title">Crie sua conta</h1>
+
+        <p class="login-subtitle">
+            Comece a organizar seus links favoritos.
+        </p>
+
+        <div th:if="${mensagemErro}" class="alert alert-danger" role="alert" th:text="${mensagemErro}"></div>
+
+        <form th:action="@{/cadastrar-novo-usuario}" method="post">
+            <div class="login-field">
+                <label for="name">Nome <span class="campo-obrigatorio">(Obrigatório)</span></label>
+                <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Digite seu nome"
+                        autocomplete="given-name"
+                >
+            </div>
+
+            <div class="login-field">
+                <label for="lastName">Sobrenome <span class="campo-obrigatorio">(Obrigatório)</span></label>
+                <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        placeholder="Digite seu sobrenome"
+                        autocomplete="family-name"
+                >
+            </div>
+
+            <div class="login-field">
+                <label for="email">E-mail <span class="campo-obrigatorio">(Obrigatório)</span></label>
+                <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        autocomplete="family-name"
+                >
+            </div>
+
+            <div class="login-field">
+                <label for="password">Senha <span class="campo-obrigatorio">(Obrigatório)</span></label>
+                <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Crie uma senha"
+                        autocomplete="new-password"
+                        aria-describedby="senha-ajuda"
+                        minlength="8"
+                >
+                <small id="senha-ajuda" class="signup-help">
+                    Use pelo menos 8 caracteres.
+                </small>
+            </div>
+
+            <div class="login-field">
+                <label for="confirmPassword">Confirmar senha <span class="campo-obrigatorio">(Obrigatório)</span></label>
+                <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Digite a senha novamente"
+                        autocomplete="new-password"
+                        minlength="8"
+                >
+            </div>
+
+            <button class="login-button" type="submit">
+                Criar conta
+            </button>
+
+            <p class="login-register">
+                Já tem uma conta?
+                <a th:href="@{/login}">Entrar</a>
+            </p>
+        </form>
+    </section>
+
+    <footer class="login-footer">
+        Seus links favoritos, em um só lugar.
+    </footer>
+</main>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+<script>
+    const senha = document.getElementById("password");
+    const confirmarSenha = document.getElementById("confirmPassword");
+
+    function validarSenhas() {
+        const diferentes = confirmarSenha.value !== ""
+            && senha.value !== confirmarSenha.value;
+
+        confirmarSenha.setCustomValidity(
+            diferentes ? "As senhas devem ser iguais." : ""
+        );
+    }
+
+    senha.addEventListener("input", validarSenhas);
+    confirmarSenha.addEventListener("input", validarSenhas);
+</script>
+</body>
+</html>

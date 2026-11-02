@@ -17,7 +17,7 @@
         <p class="text-secondary">Preencha o título e a URL para cadastrar um novo link.</p>
         <form th:action="@{/links/cadastrar}" method="post">
             <div class="mb-3">
-                <label>Título do link</label>
+                <label>Título do link <span class="campo-obrigatorio">(Obrigatório)</span></label>
                 <input type="text"
                        class="form-control"
                        id="descTitle"
@@ -27,7 +27,7 @@
                        required>
             </div>
             <div class="mt-2">
-                <label>Link</label>
+                <label>Link <span class="campo-obrigatorio">(Obrigatório)</span></label>
                 <input type="text"
                        class="form-control"
                        id="descURL"

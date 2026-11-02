@@ -1,6 +1,5 @@
 package com.save.link.api.view;
 
-import com.save.link.api.model.dto.LinkDTO;
 import com.save.link.api.model.dto.form.LinkForm;
 import com.save.link.api.service.LinkService;
 import com.save.link.api.util.exception.BusinessException;
