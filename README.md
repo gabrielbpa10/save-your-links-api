@@ -1,5 +1,7 @@
 # Save Your Links
 
+<img src="src/main/resources/static/images/save-your-links-logo.png" alt="Logo do Save Your Links" width="160">
+
 O Save Your Links é um projeto para salvar e consultar links favoritos em uma conta de usuário. A proposta é reunir os links de cada pessoa em um único lugar e oferecer um buscador para encontrá-los com facilidade.
 
 ## Tecnologias
