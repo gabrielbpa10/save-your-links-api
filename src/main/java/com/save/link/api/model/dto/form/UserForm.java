@@ -12,9 +12,9 @@ public record UserForm(
 
         @NotBlank(message = "E-mail é obrigatório.")
         @Email(message = "E-mail iválido.")
-        String email,
+        String email
 
-        @NotBlank(message = "Senha é obrigatório.")
-        String password
+//        @NotBlank(message = "Senha é obrigatório.")
+//        String password
 ) {
 }

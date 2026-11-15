@@ -30,6 +30,9 @@ public class User {
     )
     private List<Link> links = new ArrayList<>();
 
+    @Column(name = "id_entre_azure")
+    private String idEntreAzure;
+
     public User(String name, String lastName, String email) {
         this.name = name;
         this.lastName = lastName;
@@ -76,5 +79,13 @@ public class User {
 
     public void setLinks(List<Link> links) {
         this.links = links;
+    }
+
+    public String getIdEntreAzure() {
+        return idEntreAzure;
+    }
+
+    public void setIdEntreAzure(String idEntreAzure) {
+        this.idEntreAzure = idEntreAzure;
     }
 }

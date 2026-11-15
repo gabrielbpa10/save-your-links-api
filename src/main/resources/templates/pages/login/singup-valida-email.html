@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/signup.css}">
+    <title>Confirme seu e-mail | Save Your Links</title>
+</head>
+<body class="login-page">
+<main class="login-container">
+    <header class="login-header">
+        <img class="login-logo" th:src="@{/images/save-your-links-logo.png}" alt="Save Your Links">
+    </header>
+
+    <section class="login-card" aria-labelledby="signup-email-title">
+        <h1 id="signup-email-title">Confirme seu e-mail</h1>
+        <p class="login-subtitle">Digite o código numérico recebido no seu e-mail para continuar o cadastro.</p>
+
+        <div th:if="${mensagemErro}" class="alert alert-danger" role="alert" th:text="${mensagemErro}"></div>
+
+        <form th:action="@{/enviar-codigo}" method="post">
+            <input type="hidden" id="azureCadastroToken" name="azureCadastroToken" th:value="${azureCadastroToken}">
+            <div class="login-field">
+                <label for="codigo">Código de verificação <span class="campo-obrigatorio">(Obrigatório)</span></label>
+                <input type="text" id="codigo" name="codigo"
+                       placeholder="Digite o código recebido" inputmode="numeric"
+                       autocomplete="one-time-code" pattern="[0-9]+"
+                       title="Digite apenas os números do código recebido por e-mail."
+                       aria-describedby="codigo-ajuda" required>
+                <small id="codigo-ajuda" class="signup-help">
+                    Informe apenas números, incluindo os zeros no início. Confira também a pasta de spam.
+                </small>
+            </div>
+
+            <button class="login-button" type="submit">Validar e-mail</button>
+
+            <p class="login-register">
+                Já tem uma conta?
+                <a th:href="@{/login}">Entrar</a>
+            </p>
+        </form>
+    </section>
+
+    <footer class="login-footer">Seus links favoritos, em um só lugar.</footer>
+</main>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

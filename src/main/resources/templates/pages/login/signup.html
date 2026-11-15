@@ -62,40 +62,12 @@
                         id="email"
                         name="email"
                         placeholder="Digite seu e-mail"
-                        autocomplete="family-name"
-                >
-            </div>
-
-            <div class="login-field">
-                <label for="password">Senha <span class="campo-obrigatorio">(Obrigatório)</span></label>
-                <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Crie uma senha"
-                        autocomplete="new-password"
-                        aria-describedby="senha-ajuda"
-                        minlength="8"
-                >
-                <small id="senha-ajuda" class="signup-help">
-                    Use pelo menos 8 caracteres.
-                </small>
-            </div>
-
-            <div class="login-field">
-                <label for="confirmPassword">Confirmar senha <span class="campo-obrigatorio">(Obrigatório)</span></label>
-                <input
-                        type="password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        placeholder="Digite a senha novamente"
-                        autocomplete="new-password"
-                        minlength="8"
+                        autocomplete="email"
                 >
             </div>
 
             <button class="login-button" type="submit">
-                Criar conta
+                Cadastrar
             </button>
 
             <p class="login-register">
@@ -112,21 +84,5 @@
 
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 
-<script>
-    const senha = document.getElementById("password");
-    const confirmarSenha = document.getElementById("confirmPassword");
-
-    function validarSenhas() {
-        const diferentes = confirmarSenha.value !== ""
-            && senha.value !== confirmarSenha.value;
-
-        confirmarSenha.setCustomValidity(
-            diferentes ? "As senhas devem ser iguais." : ""
-        );
-    }
-
-    senha.addEventListener("input", validarSenhas);
-    confirmarSenha.addEventListener("input", validarSenhas);
-</script>
 </body>
 </html>
